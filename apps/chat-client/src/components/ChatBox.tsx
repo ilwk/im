@@ -1,8 +1,15 @@
 import Chat, { Bubble, useMessages, MessageProps } from '@chatui/core'
 import '@chatui/core/dist/index.css'
 
+const inititalMessages: Parameters<typeof useMessages>[0] = [
+  {
+    type: 'text',
+    content: { text: '您好，请问有什么可以帮您？' },
+  },
+]
+
 const ChatBox = () => {
-  const { messages, appendMsg, setTyping } = useMessages([])
+  const { messages, appendMsg } = useMessages(inititalMessages)
 
   const handleSend = (type: string, val: string) => {
     if (type === 'text' && val.trim()) {
@@ -11,15 +18,6 @@ const ChatBox = () => {
         content: { text: val },
         position: 'right',
       })
-
-      setTyping(true)
-
-      setTimeout(() => {
-        appendMsg({
-          type: 'text',
-          content: { text: 'Bala bala' },
-        })
-      }, 1000)
     }
   }
 

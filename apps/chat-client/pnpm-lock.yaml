@@ -7,11 +7,11 @@ specifiers:
   '@vitejs/plugin-react': ^2.0.1
   react: ^18.2.0
   react-dom: ^18.2.0
-  typescript: ^4.6.4
-  vite: ^3.0.7
+  typescript: ^4.8.2
+  vite: ^3.0.9
 
 dependencies:
-  '@chatui/core': 2.3.1
+  '@chatui/core': 2.3.1_biqbaboplfbrettd7655fr4n2y
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
 
@@ -306,7 +306,7 @@ packages:
       to-fast-properties: 2.0.0
     dev: true
 
-  /@chatui/core/2.3.1:
+  /@chatui/core/2.3.1_biqbaboplfbrettd7655fr4n2y:
     resolution: {integrity: sha512-lqLRjzQ62CYwMAlverjzVQzuFnw4S1XPpozWOAa7TRCH7zxZS8gm1fObnohSd2el8mgOdExqrXhmhpZ1TVl5gg==}
     peerDependencies:
       react: '>=16.8.0'
@@ -318,6 +318,8 @@ packages:
       core-js: 3.25.0
       dompurify: 2.4.0
       intersection-observer: 0.12.2
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
     dev: false
 
   /@esbuild/linux-loong64/0.14.54:
