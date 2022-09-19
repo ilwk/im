@@ -9,22 +9,26 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@pankod/refine-core": "^3.62.1",
-    "@pankod/refine-react-router-v6": "^3.31.0",
-    "@pankod/refine-react-table": "^4.5.0",
-    "@pankod/refine-simple-rest": "^3.27.0",
-    "daisyui": "^2.24.0",
+    "@chatui/core": "^2.4.2",
+    "@pankod/refine-antd": "^3.46.0",
+    "@pankod/refine-core": "^3.69.9",
+    "@pankod/refine-react-router-v6": "^3.33.2",
+    "@pankod/refine-react-table": "^4.7.2",
+    "@pankod/refine-simple-rest": "^3.31.0",
+    "@supabase/supabase-js": "^1.35.6",
+    "daisyui": "^2.28.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-table": "^7.8.0"
   },
   "devDependencies": {
-    "@types/react": "^18.0.17",
+    "@types/react": "^18.0.20",
     "@types/react-dom": "^18.0.6",
-    "@vitejs/plugin-react": "^2.0.1",
-    "autoprefixer": "^10.4.8",
+    "@vitejs/plugin-react": "^2.1.0",
+    "autoprefixer": "^10.4.11",
     "postcss": "^8.4.16",
     "tailwindcss": "^3.1.8",
-    "typescript": "^4.6.4",
-    "vite": "^3.0.7"
+    "typescript": "^4.8.3",
+    "vite": "^3.1.2"
   }
 }
