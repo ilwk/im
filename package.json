@@ -1,0 +1,13 @@
+{
+  "name": "online-customer-service",
+  "version": "1.0.0",
+  "scripts": {
+    "dev:web": "cd apps/im-web && pnpm run dev",
+    "dev:admin": "cd apps/im-admin && pnpm run dev"
+  },
+  "keywords": [
+    "IM service"
+  ],
+  "author": "ilwk",
+  "license": "MIT"
+}
