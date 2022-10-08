@@ -15,13 +15,13 @@ interface UsersTableProps {
   data: {
     avatar: string;
     name: string;
-    job: string;
+    role: string;
     username: string;
     created_time: string;
   }[];
 }
 
-const jobColors: Record<string, string> = {
+const roleColors: Record<string, string> = {
   engineer: 'blue',
   manager: 'cyan',
   designer: 'pink',
@@ -42,10 +42,10 @@ export const CustomersTable = ({ data }: UsersTableProps) => {
 
       <td>
         <Badge
-          color={jobColors[item.job.toLowerCase()]}
+          color={roleColors[item.role.toLowerCase()]}
           variant={theme.colorScheme === 'dark' ? 'light' : 'outline'}
         >
-          {item.job}
+          {item.role}
         </Badge>
       </td>
       <td>

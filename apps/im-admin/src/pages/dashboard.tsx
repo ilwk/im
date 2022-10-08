@@ -13,6 +13,9 @@ import {
   IconCoin,
   IconMessage2,
 } from '@tabler/icons';
+import { useEffect, useState } from 'react';
+import { database } from '~/utility';
+import { APPWRITE_DATABASE } from '~/utility/config';
 
 const useStyles = createStyles((theme) => ({
   root: {
@@ -53,45 +56,28 @@ const icons: any = {
   message2: IconMessage2,
 };
 
-interface StatsGridProps {
-  data: {
-    title: string;
-    icon: keyof typeof icons;
-    value: string;
-    diff: number;
-  }[];
-}
-
-const data = [
-  {
-    title: '总访客数',
-    icon: 'user',
-    value: '13',
-  },
-  {
-    title: '总消息数',
-    icon: 'message',
-    value: '50',
-  },
-  {
-    title: '会话数量',
-    icon: 'message2',
-    value: '2',
-  },
-];
-
 export const DashboardPage = () => {
+  const [data, setData] = useState<Record<string, any>[]>([]);
+  useEffect(() => {
+    database
+      .listDocuments(APPWRITE_DATABASE, 'stats')
+      .then(({ documents }) => {
+        setData(documents);
+      });
+  }, []);
   const { classes } = useStyles();
   const stats = data.map((stat) => {
     const Icon = icons[stat.icon];
 
     return (
-      <Paper withBorder p="md" radius="md" key={stat.title}>
+      <Paper withBorder p="md" radius="md" key={stat.label}>
         <Group position="apart">
           <Text size="xs" color="dimmed" className={classes.title}>
-            {stat.title}
+            {stat.label}
           </Text>
-          <Icon className={classes.icon} size={22} stroke={1.5} />
+          {Icon && (
+            <Icon className={classes.icon} size={22} stroke={1.5} />
+          )}
         </Group>
 
         <Group align="flex-end" spacing="xs" mt={25}>
@@ -99,7 +85,7 @@ export const DashboardPage = () => {
         </Group>
 
         <Text size="xs" color="dimmed" mt={7}>
-          Compared to previous month
+          {stat.remark}
         </Text>
       </Paper>
     );

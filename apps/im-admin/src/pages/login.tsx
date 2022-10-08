@@ -14,7 +14,7 @@ import { useLogin } from '@pankod/refine-core';
 import { useForm } from '@pankod/refine-mantine';
 
 type LoginVariables = {
-  username: string;
+  email: string;
   password: string;
 };
 
@@ -23,7 +23,7 @@ export const LoginPage = () => {
 
   const form = useForm({
     initialValues: {
-      username: '',
+      email: '',
       password: '',
     },
   });
@@ -47,15 +47,15 @@ export const LoginPage = () => {
           })}
         >
           <TextInput
-            label="Username"
-            placeholder="Your username"
+            label="用户名"
+            placeholder="请输入用户名"
             required
-            {...form.getInputProps('username')}
+            {...form.getInputProps('email')}
           />
 
           <PasswordInput
-            label="Password"
-            placeholder="Your password"
+            label="密码"
+            placeholder="请输入密码"
             required
             mt="md"
             {...form.getInputProps('password')}
