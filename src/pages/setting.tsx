@@ -1,8 +1,4 @@
-import {
-  Card,
-  Container,
-  SegmentedControl,
-} from '@pankod/refine-mantine';
+import { Card, Container, SegmentedControl } from '@mantine/core';
 import { useState } from 'react';
 
 export const SettingPage = () => {

@@ -6,7 +6,7 @@ import {
   Title,
   Button,
 } from '@mantine/core';
-import { useForm } from '@pankod/refine-mantine';
+import { useForm } from '@mantine/form';
 
 export const LinkedForm = () => {
   const form = useForm({

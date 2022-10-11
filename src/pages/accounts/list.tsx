@@ -1,4 +1,4 @@
-import { Button, Group } from '@pankod/refine-mantine';
+import { Button, Group } from '@mantine/core';
 import { useEffect, useState } from 'react';
 import { CustomersTable } from '~/components/Table/CustomersTable';
 import { team } from '~/utility';

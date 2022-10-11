@@ -1,31 +1,21 @@
 import { useState } from 'react';
 import {
   createStyles,
-  Container,
   Avatar,
   UnstyledButton,
   Group,
   Text,
   Menu,
-  Tabs,
-  Burger,
-  Title,
   Indicator,
 } from '@mantine/core';
-import { useDisclosure } from '@mantine/hooks';
 import {
   IconLogout,
-  IconHeart,
-  IconStar,
-  IconMessage,
   IconSettings,
-  IconPlayerPause,
-  IconTrash,
   IconSwitchHorizontal,
   IconChevronDown,
   IconPoint,
+  IconBrandMessenger,
 } from '@tabler/icons';
-import { MantineLogo } from '@mantine/ds';
 import { Header } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
@@ -84,14 +74,13 @@ interface HeaderTabsProps {
 
 export function HeaderTabsColored({ user }: HeaderTabsProps) {
   const { classes, theme, cx } = useStyles();
-  const [opened, { toggle }] = useDisclosure(false);
   const [userMenuOpened, setUserMenuOpened] = useState(false);
 
   return (
     <Header height={64} fixed className={classes.header}>
       <Group position="apart">
         <Group>
-          <MantineLogo type="mark" size={30} inverted />
+          <IconBrandMessenger className="text-green-300" size={30} />
           <Text color={'white'}>IM客服后台管理系统</Text>
         </Group>
 

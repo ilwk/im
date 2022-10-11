@@ -5,17 +5,15 @@ import {
   Checkbox,
   ScrollArea,
   Group,
-  Avatar,
   Text,
-  Tabs,
-  Box,
   Button,
   Input,
   Modal,
 } from '@mantine/core';
 import { IconSearch } from '@tabler/icons';
 import { KeywordEditForm } from '~/components/Form/KeywordEditForm';
-import { useDisclosure } from '@pankod/refine-mantine';
+import { useDisclosure } from '@mantine/hooks';
+
 const data = [
   {
     id: '1',

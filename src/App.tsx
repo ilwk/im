@@ -1,7 +1,7 @@
 import { Refine, ResourceProps } from '@pankod/refine-core';
 import routerProvider from '@pankod/refine-react-router-v6';
-import { authProvider } from './authProvider';
-import { Layout } from './components/Layout';
+import { authProvider } from '~/authProvider';
+import { Layout } from '~/components/Layout';
 import {
   ChannelList,
   ReplyList,
@@ -9,7 +9,9 @@ import {
   DashboardPage,
   SettingPage,
   AccountList,
-} from './pages';
+  ReadyPage,
+  ErrorComponent,
+} from '~/pages';
 import {
   IconMessageCircle2,
   IconRobot,
@@ -17,13 +19,9 @@ import {
   IconSettings,
   IconUser,
 } from '@tabler/icons';
-import { dataProvider, liveProvider } from '@pankod/refine-appwrite';
-import { appwriteClient } from './utility';
-import {
-  ErrorComponent,
-  notificationProvider,
-  ReadyPage,
-} from '@pankod/refine-mantine';
+import { dataProvider } from '@pankod/refine-appwrite';
+import { appwriteClient } from '~/utility';
+import { Global, MantineProvider } from '@mantine/core';
 
 const resources: ResourceProps[] = [
   {
@@ -55,23 +53,22 @@ const resources: ResourceProps[] = [
 
 const App = () => {
   return (
-    <Refine
-      routerProvider={routerProvider}
-      dataProvider={dataProvider(appwriteClient, {
-        databaseId: '63400fa83fcc4395182f',
-      })}
-      liveProvider={liveProvider(appwriteClient, {
-        databaseId: '63400fa83fcc4395182f',
-      })}
-      options={{ liveMode: 'auto' }}
-      resources={resources}
-      authProvider={authProvider}
-      ReadyPage={ReadyPage}
-      notificationProvider={notificationProvider}
-      LoginPage={LoginPage}
-      Layout={Layout}
-      catchAll={<ErrorComponent />}
-    />
+    <MantineProvider withNormalizeCSS withGlobalStyles>
+      <Global styles={{ body: { WebkitFontSmoothing: 'auto' } }} />
+      <Refine
+        routerProvider={routerProvider}
+        dataProvider={dataProvider(appwriteClient, {
+          databaseId: 'default',
+        })}
+        options={{ liveMode: 'auto' }}
+        resources={resources}
+        authProvider={authProvider}
+        ReadyPage={ReadyPage}
+        LoginPage={LoginPage}
+        Layout={Layout}
+        catchAll={<ErrorComponent />}
+      />
+    </MantineProvider>
   );
 };
 

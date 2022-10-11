@@ -1,13 +1,5 @@
-import {
-  TextInput,
-  Textarea,
-  SimpleGrid,
-  Group,
-  Title,
-  Button,
-  Select,
-} from '@mantine/core';
-import { useForm } from '@pankod/refine-mantine';
+import { TextInput, Textarea, Group, Select } from '@mantine/core';
+import { useForm } from '@mantine/form';
 
 export const KeywordEditForm = () => {
   const form = useForm({

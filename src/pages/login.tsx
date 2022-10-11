@@ -2,24 +2,22 @@ import {
   TextInput,
   PasswordInput,
   Checkbox,
-  Anchor,
   Paper,
   Title,
-  Text,
   Container,
   Group,
   Button,
 } from '@mantine/core';
 import { useLogin } from '@pankod/refine-core';
-import { useForm } from '@pankod/refine-mantine';
+import { useForm } from '@mantine/form';
 
-type LoginVariables = {
+export interface ILoginForm {
   email: string;
   password: string;
-};
+}
 
 export const LoginPage = () => {
-  const { mutate } = useLogin<LoginVariables>();
+  const { mutate } = useLogin<ILoginForm>();
 
   const form = useForm({
     initialValues: {
