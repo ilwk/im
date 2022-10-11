@@ -3,12 +3,10 @@ import {
   Navbar,
   Tooltip,
   UnstyledButton,
-  Center,
   Stack,
   UnstyledButtonProps,
 } from '@mantine/core';
 import { IconLogout, IconList } from '@tabler/icons';
-import { MantineLogo } from '@mantine/ds';
 import {
   ITreeMenu,
   useLogout,
