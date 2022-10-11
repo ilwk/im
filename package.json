@@ -1,13 +1,41 @@
 {
-  "name": "online-customer-service",
-  "version": "1.0.0",
+  "name": "im-web",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "dev:web": "cd apps/im-web && pnpm run dev",
-    "dev:admin": "cd apps/im-admin && pnpm run dev"
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
   },
-  "keywords": [
-    "IM service"
-  ],
-  "author": "ilwk",
-  "license": "MIT"
+  "dependencies": {
+    "@chatui/core": "^2.4.2",
+    "@emotion/react": "^11.10.4",
+    "@mantine/core": "^5.5.4",
+    "@mantine/ds": "^5.5.4",
+    "@mantine/hooks": "^5.5.4",
+    "@mantine/prism": "^5.5.4",
+    "@pankod/refine-appwrite": "^5.1.0",
+    "@pankod/refine-core": "^3.78.0",
+    "@pankod/refine-mantine": "^1.4.0",
+    "@pankod/refine-react-router-v6": "^3.36.0",
+    "@pankod/refine-react-table": "^4.7.6",
+    "@pankod/refine-simple-rest": "^3.31.0",
+    "@pankod/refine-ui-types": "^0.11.2",
+    "@tabler/icons": "^1.102.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-table": "^7.8.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.8.4",
+    "@types/react": "^18.0.21",
+    "@types/react-dom": "^18.0.6",
+    "@vitejs/plugin-react": "^2.1.0",
+    "autoprefixer": "^10.4.12",
+    "postcss": "^8.4.17",
+    "tailwindcss": "^3.1.8",
+    "typescript": "^4.8.4",
+    "vite": "^3.1.7"
+  }
 }
