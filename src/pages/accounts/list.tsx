@@ -1,5 +1,5 @@
-import { Button, Group } from '@mantine/core';
 import { useEffect, useState } from 'react';
+import { Button } from '~/components';
 import { CustomersTable } from '~/components/Table/CustomersTable';
 import { team } from '~/utility';
 
@@ -29,9 +29,7 @@ export const AccountList = () => {
   }, []);
   return (
     <>
-      <Group>
-        <Button>新增</Button>
-      </Group>
+      <Button>新增</Button>
       <CustomersTable data={data}></CustomersTable>
     </>
   );

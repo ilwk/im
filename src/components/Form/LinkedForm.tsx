@@ -1,11 +1,3 @@
-import {
-  TextInput,
-  Textarea,
-  SimpleGrid,
-  Group,
-  Title,
-  Button,
-} from '@mantine/core';
 import { useForm } from '@mantine/form';
 
 export const LinkedForm = () => {
@@ -18,23 +10,18 @@ export const LinkedForm = () => {
 
   return (
     <form onSubmit={form.onSubmit(() => {})}>
-      <Textarea
-        mt="md"
-        label="消息内容"
+      <textarea
         placeholder="请输入内容"
         maxRows={10}
         minRows={5}
         autosize
         name="message"
-        variant="filled"
         {...form.getInputProps('message')}
       />
 
-      <Group mt="xl">
-        <Button type="submit" size="md">
-          保存
-        </Button>
-      </Group>
+      <div>
+        <button type="submit">保存</button>
+      </div>
     </form>
   );
 };

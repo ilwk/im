@@ -9,7 +9,6 @@ import {
   DashboardPage,
   SettingPage,
   AccountList,
-  ReadyPage,
   ErrorComponent,
 } from '~/pages';
 import {
@@ -69,7 +68,6 @@ const App = () => {
       options={{ liveMode: 'auto' }}
       resources={resources}
       authProvider={authProvider}
-      ReadyPage={ReadyPage}
       LoginPage={LoginPage}
       Layout={Layout}
       catchAll={<ErrorComponent />}

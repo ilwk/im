@@ -1,11 +1,4 @@
 import {
-  createStyles,
-  Group,
-  Paper,
-  SimpleGrid,
-  Text,
-} from '@mantine/core';
-import {
   IconUserPlus,
   IconMessage,
   IconDiscount2,
@@ -16,36 +9,6 @@ import {
 import { useEffect, useState } from 'react';
 import { database } from '~/utility';
 import { APPWRITE_DATABASE } from '~/utility/config';
-
-const useStyles = createStyles((theme) => ({
-  root: {
-    padding: theme.spacing.xl * 1.5,
-  },
-
-  value: {
-    fontSize: 24,
-    fontWeight: 700,
-    lineHeight: 1,
-  },
-
-  diff: {
-    lineHeight: 1,
-    display: 'flex',
-    alignItems: 'center',
-  },
-
-  icon: {
-    color:
-      theme.colorScheme === 'dark'
-        ? theme.colors.dark[3]
-        : theme.colors.gray[4],
-  },
-
-  title: {
-    fontWeight: 700,
-    textTransform: 'uppercase',
-  },
-}));
 
 const icons: any = {
   user: IconUserPlus,
@@ -65,7 +28,6 @@ export const DashboardPage = () => {
         setData(documents);
       });
   }, []);
-  const { classes } = useStyles();
   const stats = data.map((stat) => {
     const Icon = icons[stat.icon];
 
@@ -78,7 +40,6 @@ export const DashboardPage = () => {
           {Icon && (
             <Icon
               className={[
-                classes.icon,
                 'rounded-full bg-blue-500 p-3 text-white',
               ].join(' ')}
               size={48}

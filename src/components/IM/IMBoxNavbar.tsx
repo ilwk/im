@@ -1,4 +1,3 @@
-import { Avatar } from '@mantine/core';
 import { useEffect } from 'react';
 import { appwriteClient } from '~/utility';
 
@@ -14,11 +13,7 @@ export const IMBoxNavbar = () => {
   return (
     <nav className="bg-white dark:bg-gray-800 justify-between flex flex-col p-4">
       <div>
-        <Avatar
-          className="cursor-pointer"
-          src={null}
-          alt="no image here"
-        />
+        <div className="w-12 h-12 rounded-md bg-slate-500 inline-block"></div>
       </div>
       <div></div>
     </nav>
