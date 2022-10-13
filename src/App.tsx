@@ -1,7 +1,7 @@
 import { Refine, ResourceProps } from '@pankod/refine-core';
 import routerProvider from '@pankod/refine-react-router-v6';
 import { authProvider } from '~/authProvider';
-import { Layout } from '~/components/Layout';
+import { Layout } from '~/components/Layout/Layout';
 import {
   ChannelList,
   ReplyList,
@@ -53,22 +53,19 @@ const resources: ResourceProps[] = [
 
 const App = () => {
   return (
-    <MantineProvider withNormalizeCSS withGlobalStyles>
-      <Global styles={{ body: { WebkitFontSmoothing: 'auto' } }} />
-      <Refine
-        routerProvider={routerProvider}
-        dataProvider={dataProvider(appwriteClient, {
-          databaseId: 'default',
-        })}
-        options={{ liveMode: 'auto' }}
-        resources={resources}
-        authProvider={authProvider}
-        ReadyPage={ReadyPage}
-        LoginPage={LoginPage}
-        Layout={Layout}
-        catchAll={<ErrorComponent />}
-      />
-    </MantineProvider>
+    <Refine
+      routerProvider={routerProvider}
+      dataProvider={dataProvider(appwriteClient, {
+        databaseId: 'default',
+      })}
+      options={{ liveMode: 'auto' }}
+      resources={resources}
+      authProvider={authProvider}
+      ReadyPage={ReadyPage}
+      LoginPage={LoginPage}
+      Layout={Layout}
+      catchAll={<ErrorComponent />}
+    />
   );
 };
 

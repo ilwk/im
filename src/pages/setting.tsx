@@ -1,5 +1,6 @@
-import { Card, Container, SegmentedControl } from '@mantine/core';
+import { SegmentedControl } from '@mantine/core';
 import { useState } from 'react';
+import { AccountSettingCard } from '~/components/Card/AccountSettingCard';
 
 export const SettingPage = () => {
   const [value, setValue] = useState('user-setting');
@@ -15,6 +16,7 @@ export const SettingPage = () => {
           { label: '账号设置', value: 'account-setting' },
         ]}
       />
+      <AccountSettingCard />
     </>
   );
 };

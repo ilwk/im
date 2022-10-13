@@ -1,13 +1,3 @@
-import {
-  TextInput,
-  PasswordInput,
-  Checkbox,
-  Paper,
-  Title,
-  Container,
-  Group,
-  Button,
-} from '@mantine/core';
 import { useLogin } from '@pankod/refine-core';
 import { useForm } from '@mantine/form';
 
@@ -17,7 +7,7 @@ export interface ILoginForm {
 }
 
 export const LoginPage = () => {
-  const { mutate } = useLogin<ILoginForm>();
+  const { mutate, isLoading } = useLogin<ILoginForm>();
 
   const form = useForm({
     initialValues: {
@@ -27,52 +17,66 @@ export const LoginPage = () => {
   });
 
   return (
-    <Container size={420} my={60}>
-      <Title
-        align="center"
-        sx={(theme) => ({
-          fontFamily: `Greycliff CF, ${theme.fontFamily}`,
-          fontWeight: 900,
-        })}
-      >
-        登录
-      </Title>
+    <section className="h-screen grid place-items-center">
+      <div className="w-full max-w-sm p-6 m-auto mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
+        <h1 className="text-3xl font-semibold text-center text-gray-700 dark:text-white">
+          在线客服系统
+        </h1>
 
-      <Paper withBorder shadow="md" p={30} mt={30} radius="md">
         <form
+          className="mt-6"
           onSubmit={form.onSubmit((values) => {
             mutate(values);
           })}
         >
-          <TextInput
-            label="用户名"
-            placeholder="请输入用户名"
-            required
-            {...form.getInputProps('email')}
-          />
-
-          <PasswordInput
-            label="密码"
-            placeholder="请输入密码"
-            required
-            mt="md"
-            {...form.getInputProps('password')}
-          />
-          <Group position="apart" mt="md">
-            <Checkbox label="Remember me" />
-            {/* <Anchor<'a'>
-              onClick={(event) => event.preventDefault()}
-              href="#"
-              size="sm"
+          <div>
+            <label
+              htmlFor="username"
+              className="block text-sm text-gray-800 dark:text-gray-200"
             >
-              Forgot password?
-            </Anchor> */}
-          </Group>
-          <Button fullWidth mt="xl" type="submit">
-            Sign in
-          </Button>
+              用户名
+            </label>
+            <input
+              type="text"
+              className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+              {...form.getInputProps('email')}
+            />
+          </div>
+
+          <div className="mt-4">
+            <div className="flex items-center justify-between">
+              <label
+                htmlFor="password"
+                className="block text-sm text-gray-800 dark:text-gray-200"
+              >
+                密码
+              </label>
+              {/* <a
+                href="#"
+                className="text-xs text-gray-600 dark:text-gray-400 hover:underline"
+              >
+                Forget Password?
+              </a> */}
+            </div>
+
+            <input
+              type="password"
+              className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+              {...form.getInputProps('password')}
+            />
+          </div>
+
+          <div className="mt-6">
+            <button
+              type="submit"
+              className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600"
+              disabled={isLoading}
+            >
+              登录
+            </button>
+          </div>
         </form>
-      </Paper>
-    </Container>
+      </div>
+    </section>
   );
 };

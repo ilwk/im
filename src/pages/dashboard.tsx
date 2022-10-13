@@ -70,37 +70,34 @@ export const DashboardPage = () => {
     const Icon = icons[stat.icon];
 
     return (
-      <Paper withBorder p="md" radius="md" key={stat.label}>
-        <Group position="apart">
-          <Text size="xs" color="dimmed" className={classes.title}>
-            {stat.label}
-          </Text>
+      <div
+        className="flex items-center px-6 py-8 bg-white rounded-lg shadow-md shadow-gray-200"
+        key={stat.label}
+      >
+        <div className="flex items-center space-x-4">
           {Icon && (
-            <Icon className={classes.icon} size={22} stroke={1.5} />
+            <Icon
+              className={[
+                classes.icon,
+                'rounded-full bg-blue-500 p-3 text-white',
+              ].join(' ')}
+              size={48}
+              stroke={1.5}
+            />
           )}
-        </Group>
-
-        <Group align="flex-end" spacing="xs" mt={25}>
-          <Text className={classes.value}>{stat.value}</Text>
-        </Group>
-
-        <Text size="xs" color="dimmed" mt={7}>
-          {stat.remark}
-        </Text>
-      </Paper>
+          <div>
+            <h3 className="text-2xl font-medium text-gray-800">
+              {stat.value}
+            </h3>
+            <p className="mt-1 text-sm text-gray-500">{stat.label}</p>
+          </div>
+        </div>
+      </div>
     );
   });
   return (
-    <div className={classes.root}>
-      <SimpleGrid
-        cols={4}
-        breakpoints={[
-          { maxWidth: 'md', cols: 2 },
-          { maxWidth: 'xs', cols: 1 },
-        ]}
-      >
-        {stats}
-      </SimpleGrid>
-    </div>
+    <section className="p-4 grid grid-cols-1 xl:grid-cols-3 2xl:grid-cols-4 gap-6">
+      {stats}
+    </section>
   );
 };
