@@ -21,7 +21,7 @@ import {
 } from '@tabler/icons';
 import { dataProvider } from '@pankod/refine-appwrite';
 import { appwriteClient } from '~/utility';
-import { Global, MantineProvider } from '@mantine/core';
+import { ClientPage } from '~/pages';
 
 const resources: ResourceProps[] = [
   {
@@ -54,7 +54,15 @@ const resources: ResourceProps[] = [
 const App = () => {
   return (
     <Refine
-      routerProvider={routerProvider}
+      routerProvider={{
+        ...routerProvider,
+        routes: [
+          {
+            element: <ClientPage />,
+            path: 'client',
+          },
+        ],
+      }}
       dataProvider={dataProvider(appwriteClient, {
         databaseId: 'default',
       })}
