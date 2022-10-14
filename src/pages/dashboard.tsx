@@ -1,22 +1,12 @@
-import {
-  IconUserPlus,
-  IconMessage,
-  IconDiscount2,
-  IconReceipt2,
-  IconCoin,
-  IconMessage2,
-} from '@tabler/icons';
 import { useEffect, useState } from 'react';
 import { database } from '~/utility';
 import { APPWRITE_DATABASE } from '~/utility/config';
+import { PersonIcon, ChatBubbleIcon } from '@radix-ui/react-icons';
 
 const icons: any = {
-  user: IconUserPlus,
-  discount: IconDiscount2,
-  receipt: IconReceipt2,
-  coin: IconCoin,
-  message: IconMessage,
-  message2: IconMessage2,
+  user: PersonIcon,
+  message: ChatBubbleIcon,
+  message2: ChatBubbleIcon,
 };
 
 export const DashboardPage = () => {

@@ -1,13 +1,13 @@
 import * as Popover from '@radix-ui/react-popover';
 import ChatBox from '~/components/Widget/ChatBox';
-import { IconPlus } from '@tabler/icons';
+import { PlusIcon } from '@radix-ui/react-icons';
 
 const FixedButton = () => {
   return (
     <Popover.Root>
       <Popover.Trigger asChild>
         <button className="p-2 fixed right-12 bottom-12 bg-blue-500 text-white rounded-full shadow">
-          <IconPlus />
+          <PlusIcon />
         </button>
       </Popover.Trigger>
       <Popover.Portal>

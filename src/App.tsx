@@ -12,12 +12,12 @@ import {
   ErrorComponent,
 } from '~/pages';
 import {
-  IconMessageCircle2,
-  IconRobot,
-  IconDashboard,
-  IconSettings,
-  IconUser,
-} from '@tabler/icons';
+  DashboardIcon,
+  PersonIcon,
+  ReaderIcon,
+  GearIcon,
+  ChatBubbleIcon,
+} from '@radix-ui/react-icons';
 import { dataProvider } from '@pankod/refine-appwrite';
 import { appwriteClient } from '~/utility';
 import { ClientPage } from '~/pages';
@@ -26,27 +26,27 @@ const resources: ResourceProps[] = [
   {
     name: 'dashboard',
     list: DashboardPage,
-    icon: <IconDashboard />,
+    icon: <DashboardIcon />,
   },
   {
     name: 'messages',
     list: ChannelList,
-    icon: <IconMessageCircle2 />,
+    icon: <ChatBubbleIcon />,
   },
   {
     name: 'auto-reply',
     list: ReplyList,
-    icon: <IconRobot />,
+    icon: <ReaderIcon />,
   },
   {
     name: 'accounts',
     list: AccountList,
-    icon: <IconUser />,
+    icon: <PersonIcon />,
   },
   {
     name: 'setting',
     list: SettingPage,
-    icon: <IconSettings />,
+    icon: <GearIcon />,
   },
 ];
 
