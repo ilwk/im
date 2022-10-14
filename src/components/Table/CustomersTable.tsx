@@ -1,37 +1,38 @@
-interface UsersTableProps {
-  data: {
-    avatar: string;
-    name: string;
-    role: string;
-    username: string;
-    created_time: string;
-  }[];
+import { createColumnHelper } from '@tanstack/react-table';
+import { Table } from './Table';
+
+interface Props {
+  data: DataProps[];
 }
 
-export const CustomersTable = ({ data }: UsersTableProps) => {
-  const rows = data.map((item) => (
-    <tr key={item.name}>
-      <td>{item.name}</td>
+type DataProps = {
+  avatar: string;
+  name: string;
+  role: string;
+  username: string;
+  created_time: string;
+};
 
-      <td>{item.role}</td>
-      <td>{item.username}</td>
-      <td>{item.created_time}</td>
-      <td></td>
-    </tr>
-  ));
+export const CustomersTable: React.FC<Props> = ({ data }) => {
+  const columnsHelper = createColumnHelper<DataProps>();
+  const columns = [
+    columnsHelper.accessor('name', {
+      header: '账号',
+      cell: (info) => info.getValue(),
+    }),
+    columnsHelper.accessor('role', {
+      header: '权限',
+      cell: (info) => info.getValue(),
+    }),
+    columnsHelper.accessor('username', {
+      header: '用户名',
+      cell: (info) => info.getValue(),
+    }),
+    columnsHelper.accessor('created_time', {
+      header: '创建时间',
+      cell: (info) => info.getValue(),
+    }),
+  ];
 
-  return (
-    <table>
-      <thead>
-        <tr>
-          <th>账户姓名</th>
-          <th>权限</th>
-          <th>账号</th>
-          <th>创建时间</th>
-          <th />
-        </tr>
-      </thead>
-      <tbody>{rows}</tbody>
-    </table>
-  );
+  return <Table data={data} columns={columns}></Table>;
 };

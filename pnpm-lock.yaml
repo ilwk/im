@@ -12,6 +12,7 @@ specifiers:
   '@radix-ui/react-popover': ^1.0.0
   '@radix-ui/react-tabs': ^1.0.0
   '@radix-ui/react-tooltip': ^1.0.0
+  '@tanstack/react-table': ^8.5.15
   '@types/node': ^18.8.5
   '@types/react': ^18.0.21
   '@types/react-dom': ^18.0.6
@@ -36,6 +37,7 @@ dependencies:
   '@radix-ui/react-popover': 1.0.0_rj7ozvcq3uehdlnj3cbwzbi5ce
   '@radix-ui/react-tabs': 1.0.0_biqbaboplfbrettd7655fr4n2y
   '@radix-ui/react-tooltip': 1.0.0_rj7ozvcq3uehdlnj3cbwzbi5ce
+  '@tanstack/react-table': 8.5.15_biqbaboplfbrettd7655fr4n2y
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
 
@@ -991,6 +993,23 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       use-sync-external-store: 1.2.0_react@18.2.0
+    dev: false
+
+  /@tanstack/react-table/8.5.15_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-9rSvhIFeMpfXksFgQNTWnVoJbkae/U8CkHnHYGWAIB/O0Ca51IKap0Rjp5WkIUVBWxJ7Wfl2y13oY+aWcyM6Rg==}
+    engines: {node: '>=12'}
+    peerDependencies:
+      react: '>=16'
+      react-dom: '>=16'
+    dependencies:
+      '@tanstack/table-core': 8.5.15
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
+
+  /@tanstack/table-core/8.5.15:
+    resolution: {integrity: sha512-k+BcCOAYD610Cij6p1BPyEqjMQjZIdAnVDoIUKVnA/tfHbF4JlDP7pKAftXPBxyyX5Z1yQPurPnOdEY007Snyg==}
+    engines: {node: '>=12'}
     dev: false
 
   /@types/node/18.8.5:

@@ -1,6 +1,7 @@
 import { KeywordEditForm } from '~/components/Form/KeywordEditForm';
-import { Button } from '~/components';
+import { Button, Table } from '~/components';
 import * as Dialog from '@radix-ui/react-dialog';
+import { createColumnHelper } from '@tanstack/react-table';
 
 const data = [
   {
@@ -24,15 +25,27 @@ const data = [
 ];
 
 export const KeywordTable = () => {
-  const rows = data.map((item) => {
-    return (
-      <tr key={item.id}>
-        <td>{item.name}</td>
-        <td>{item.keyword}</td>
-        <td>{item.message}</td>
-      </tr>
-    );
-  });
+  const columnsHelper = createColumnHelper<{
+    id: string;
+    name: string;
+    message: string;
+    keyword: string;
+  }>();
+
+  const columns = [
+    columnsHelper.accessor('name', {
+      header: '名称',
+      cell: (info) => info.getValue(),
+    }),
+    columnsHelper.accessor('keyword', {
+      header: '关键词',
+      cell: (info) => info.getValue(),
+    }),
+    columnsHelper.accessor('message', {
+      header: '回复内容',
+      cell: (info) => info.getValue(),
+    }),
+  ];
   return (
     <>
       <Dialog.Root>
@@ -45,17 +58,7 @@ export const KeywordTable = () => {
             新建
           </Button>
         </Dialog.Trigger>
-        <table>
-          <thead>
-            <tr>
-              <th>规则名称</th>
-              <th>关键词</th>
-              <th>回复内容</th>
-            </tr>
-          </thead>
-          <tbody>{rows}</tbody>
-        </table>
-
+        <Table data={data} columns={columns}></Table>
         <Dialog.Portal>
           <Dialog.Overlay />
           <Dialog.Content>
