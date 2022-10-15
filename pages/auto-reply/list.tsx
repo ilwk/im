@@ -20,3 +20,5 @@ export const ReplyList = () => {
     </section>
   );
 };
+
+export default ReplyList;

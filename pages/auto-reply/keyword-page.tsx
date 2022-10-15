@@ -49,14 +49,8 @@ export const KeywordTable = () => {
   return (
     <>
       <Dialog.Root>
-        <Dialog.Trigger>
-          <Button
-            onClick={() => {
-              open();
-            }}
-          >
-            新建
-          </Button>
+        <Dialog.Trigger asChild>
+          <Button onClick={() => {}}>新建</Button>
         </Dialog.Trigger>
         <Table data={data} columns={columns}></Table>
         <Dialog.Portal>

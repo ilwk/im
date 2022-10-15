@@ -1,8 +1,4 @@
-interface HeaderTabsProps {
-  user: { name: string; image: string };
-}
-
-export const HeaderTabs = ({ user }: HeaderTabsProps) => {
+export const HeaderTabs = () => {
   return (
     <header className="flex h-12 max-h-12 items-center justify-between py-2 px-5 border-b dark:border-neutral-700 dark:bg-neutral-800 dark:text-white">
       <div className="-ml-2 flex items-center text-sm">

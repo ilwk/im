@@ -1,12 +1,12 @@
-import { useState } from 'react';
+import { LayoutWrapper } from 'components';
 import { AccountSettingCard } from 'components/Card/AccountSettingCard';
 
-export const SettingPage = () => {
-  const [value, setValue] = useState('user-setting');
-
+const SettingPage = () => {
   return (
-    <>
+    <LayoutWrapper>
       <AccountSettingCard />
-    </>
+    </LayoutWrapper>
   );
 };
+
+export default SettingPage;

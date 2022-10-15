@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { database } from 'utility';
 import { APPWRITE_DATABASE } from 'utility/config';
 import { PersonIcon, ChatBubbleIcon } from '@radix-ui/react-icons';
+import { LayoutWrapper } from 'components';
 
 const icons: any = {
   user: PersonIcon,
@@ -47,9 +48,11 @@ export const DashboardPage = () => {
     );
   });
   return (
-    <section className="p-4 grid grid-cols-1 xl:grid-cols-3 2xl:grid-cols-4 gap-6">
-      {stats}
-    </section>
+    <LayoutWrapper>
+      <section className="p-4 grid grid-cols-1 xl:grid-cols-3 2xl:grid-cols-4 gap-6">
+        {stats}
+      </section>
+    </LayoutWrapper>
   );
 };
 

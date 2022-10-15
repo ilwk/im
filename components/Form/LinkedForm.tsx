@@ -12,9 +12,6 @@ export const LinkedForm = () => {
     <form onSubmit={form.onSubmit(() => {})}>
       <textarea
         placeholder="请输入内容"
-        maxRows={10}
-        minRows={5}
-        autosize
         name="message"
         {...form.getInputProps('message')}
       />

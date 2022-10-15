@@ -1,7 +1,12 @@
-export { ChannelList } from './list';
+import { LayoutWrapper } from 'components';
+import { ChannelList } from './list';
 
 const MessagePage = () => {
-  return <div></div>;
+  return (
+    <LayoutWrapper>
+      <ChannelList></ChannelList>
+    </LayoutWrapper>
+  );
 };
 
 export default MessagePage;

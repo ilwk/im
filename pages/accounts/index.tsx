@@ -1,9 +1,14 @@
+import { LayoutWrapper } from 'components';
 import { AccountList } from './list';
 
 export { AccountList };
 
 export const AccountsPage = () => {
-  return <div>123</div>;
+  return (
+    <LayoutWrapper>
+      <AccountList />
+    </LayoutWrapper>
+  );
 };
 
 export default AccountsPage;

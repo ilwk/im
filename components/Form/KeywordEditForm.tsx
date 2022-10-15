@@ -57,11 +57,7 @@ export const KeywordEditForm = () => {
         mt="md"
         label="回复内容"
         placeholder="请输入回复内容"
-        maxRows={10}
-        minRows={5}
-        autosize
         name="message"
-        variant="filled"
         {...form.getInputProps('message')}
       />
     </form>

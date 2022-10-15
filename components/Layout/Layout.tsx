@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { Sidebar, Header } from 'components';
-import { LayoutProps } from '@pankod/refine-core';
 
-export const Layout: React.FC<LayoutProps> = ({ children }) => {
+export const Layout: React.FC<{ children?: ReactNode }> = ({
+  children,
+}) => {
   return (
     <div className="min-h-screen flex dark:bg-neutral-800 dark:text-neutral-100">
       <Sidebar />
@@ -13,3 +14,5 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
     </div>
   );
 };
+
+export const LayoutWrapper = Layout;
