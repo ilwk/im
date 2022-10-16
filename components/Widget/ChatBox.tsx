@@ -27,7 +27,7 @@ const useMessage = () => {
 };
 
 const ChatBox = () => {
-  const { room, messages } = useUserStore();
+  const { room, messages, sendMsg } = useUserStore();
 
   const handleSend = (type: string, val: string) => {
     if (type === 'text' && val.trim()) {
@@ -37,12 +37,7 @@ const ChatBox = () => {
         position: 'right',
       };
 
-      addMessage({
-        username: room,
-        data,
-        room,
-      });
-      // appendMsg(data);
+      sendMsg(data);
     }
   };
 

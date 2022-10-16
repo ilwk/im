@@ -1,7 +1,8 @@
-import { MessageProps } from '@chatui/core';
+import { MessageProps, useMessages } from '@chatui/core';
 import { useEffect, useState } from 'react';
 import { supabase } from 'utility';
 import { get } from 'lodash-es';
+import { addMessage } from 'lib';
 
 export const getUserID = () => {
   const cache_id = localStorage.getItem('__UID__');
@@ -19,30 +20,47 @@ const fetchUserMessage = async (setMessage: Function) => {
     .select('*')
     .eq('room', getUserID());
 
-  setMessage(data?.map((item) => item.data) || []);
+  setMessage(
+    data?.map((item) => ({
+      ...item,
+      _id: item.id,
+      createdAt: item.created_at,
+      position: item.username === getUserID() ? 'right' : 'left',
+    })) || []
+  );
 };
 
 export const useUserStore = () => {
-  const [messages, setMessages] = useState<MessageProps[]>([]);
+  const { messages, resetList, appendMsg } = useMessages();
   const [room, setRoom] = useState('');
 
   const handleNewMessage = (newMessage: any) => {
-    setMessages((messages) => [...messages, newMessage]);
+    appendMsg(newMessage);
+  };
+
+  const sendMsg = (message: MessageProps) => {
+    appendMsg(message);
+    addMessage({
+      username: getUserID(),
+      room: getUserID(),
+      content: message.content,
+      type: message.type,
+    });
   };
   useEffect(() => {
     setRoom(getUserID());
-    fetchUserMessage(setMessages);
+    fetchUserMessage(resetList);
     supabase
       .channel('public:messages')
       .on(
         'postgres_changes',
         { event: 'INSERT', schema: 'public', table: 'messages' },
         (payload) => {
-          handleNewMessage(get(payload, 'new.data'));
+          handleNewMessage(payload.new);
         }
       )
       .subscribe();
   }, []);
 
-  return { messages, room };
+  return { messages, room, sendMsg };
 };
