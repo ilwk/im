@@ -16,12 +16,14 @@ specifiers:
   '@supabase/auth-ui-react': ^0.2.2
   '@supabase/supabase-js': ^2.0.0
   '@tanstack/react-table': ^8.5.15
+  '@types/lodash-es': ^4.17.6
   '@types/node': 18.8.5
   '@types/react': 18.0.21
   '@types/react-dom': 18.0.6
   autoprefixer: ^10.4.12
   eslint: 8.25.0
   eslint-config-next: 12.3.1
+  lodash-es: ^4.17.21
   next: 12.3.1
   postcss: ^8.4.18
   react: 18.2.0
@@ -45,11 +47,13 @@ dependencies:
   '@supabase/auth-ui-react': 0.2.2_biqbaboplfbrettd7655fr4n2y
   '@supabase/supabase-js': 2.0.0
   '@tanstack/react-table': 8.5.15_biqbaboplfbrettd7655fr4n2y
+  lodash-es: 4.17.21
   next: 12.3.1_biqbaboplfbrettd7655fr4n2y
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
 
 devDependencies:
+  '@types/lodash-es': 4.17.6
   '@types/node': 18.8.5
   '@types/react': 18.0.21
   '@types/react-dom': 18.0.6
@@ -974,6 +978,16 @@ packages:
 
   /@types/json5/0.0.29:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
+    dev: true
+
+  /@types/lodash-es/4.17.6:
+    resolution: {integrity: sha512-R+zTeVUKDdfoRxpAryaQNRKk3105Rrgx2CFRClIgRGaqDTdjsm8h6IYA8ir584W3ePzkZfst5xIgDwYrlh9HLg==}
+    dependencies:
+      '@types/lodash': 4.14.186
+    dev: true
+
+  /@types/lodash/4.14.186:
+    resolution: {integrity: sha512-eHcVlLXP0c2FlMPm56ITode2AgLMSa6aJ05JTTbYbI+7EMkCEE5qk2E41d5g2lCVTqRe0GnnRFurmlCsDODrPw==}
     dev: true
 
   /@types/node/18.8.5:

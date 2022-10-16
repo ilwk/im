@@ -5,24 +5,44 @@ import Chat, {
 } from '@chatui/core';
 
 import '@chatui/core/dist/index.css';
+import { addMessage, fetchMessages } from 'lib';
+import { useEffect, useState } from 'react';
+import { getUserID as getRoomID, useUserStore } from 'hooks';
 
-const inititalMessages: Parameters<typeof useMessages>[0] = [
-  {
-    type: 'text',
-    content: { text: '您好，请问有什么可以帮您？' },
-  },
-];
+const useMessage = () => {
+  const [messages, setMessages] = useState<any[]>([]);
+  const [room, setRoom] = useState('');
+
+  useEffect(() => {
+    const room_id = getRoomID();
+    const getMessages = async () => {
+      const { data } = await fetchMessages(room_id);
+      setMessages(data || []);
+    };
+    getMessages();
+    setRoom(getRoomID());
+  }, []);
+
+  return { data: messages.map((item) => item.data), room };
+};
 
 const ChatBox = () => {
-  const { messages, appendMsg } = useMessages(inititalMessages);
+  const { room, messages } = useUserStore();
 
   const handleSend = (type: string, val: string) => {
     if (type === 'text' && val.trim()) {
-      appendMsg({
+      const data: any = {
         type: 'text',
         content: { text: val },
         position: 'right',
+      };
+
+      addMessage({
+        username: room,
+        data,
+        room,
       });
+      // appendMsg(data);
     }
   };
 
