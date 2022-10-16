@@ -12,24 +12,27 @@ export interface Database {
       messages: {
         Row: {
           id: number;
-          data: Json | null;
           username: string;
           room: string;
-          timestamp: string;
+          created_at: string;
+          content: Json | null;
+          type: string | null;
         };
         Insert: {
           id?: number;
-          data?: Json | null;
           username: string;
           room: string;
-          timestamp?: string;
+          created_at?: string;
+          content?: Json | null;
+          type?: string | null;
         };
         Update: {
           id?: number;
-          data?: Json | null;
           username?: string;
           room?: string;
-          timestamp?: string;
+          created_at?: string;
+          content?: Json | null;
+          type?: string | null;
         };
       };
     };
