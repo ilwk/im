@@ -67,3 +67,5 @@ export const KeywordTable = () => {
     </>
   );
 };
+
+export default KeywordTable;

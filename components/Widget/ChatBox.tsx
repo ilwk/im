@@ -5,7 +5,7 @@ import Chat, {
 } from '@chatui/core';
 
 import '@chatui/core/dist/index.css';
-import { addMessage, fetchMessages } from 'lib';
+import { fetchMessages } from 'lib';
 import { useEffect, useState } from 'react';
 import { getUserID as getRoomID, useUserStore } from 'hooks';
 

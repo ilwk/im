@@ -34,3 +34,5 @@ export const AccountList = () => {
     </>
   );
 };
+
+export default AccountList;

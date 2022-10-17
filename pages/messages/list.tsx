@@ -11,3 +11,5 @@ type Props = {};
 export const ChannelList = (props: Props) => {
   return <IMBox />;
 };
+
+export default ChannelList;

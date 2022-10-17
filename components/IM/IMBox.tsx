@@ -3,6 +3,7 @@ const Chat = dynamic(() => import('@chatui/core'), { ssr: false });
 // 引入样式
 import '@chatui/core/dist/index.css';
 import dynamic from 'next/dynamic';
+import Image from 'next/image';
 import { IMBoxNavbar } from './IMBoxNavbar';
 
 type Props = {};
@@ -73,7 +74,7 @@ export const IMBox = (props: Props) => {
       case 'image':
         return (
           <Bubble type="image">
-            <img src={content.picUrl} alt="" />
+            <Image src={content.picUrl} alt="" />
           </Bubble>
         );
       default:

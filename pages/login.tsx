@@ -1,4 +1,3 @@
-import { useLogin } from '@pankod/refine-core';
 import { useForm } from '@mantine/form';
 
 export interface ILoginForm {
@@ -7,8 +6,6 @@ export interface ILoginForm {
 }
 
 export const LoginPage = () => {
-  const { mutate, isLoading } = useLogin<ILoginForm>();
-
   const form = useForm({
     initialValues: {
       email: '',
@@ -25,9 +22,7 @@ export const LoginPage = () => {
 
         <form
           className="mt-6"
-          onSubmit={form.onSubmit((values) => {
-            mutate(values);
-          })}
+          onSubmit={form.onSubmit((values) => {})}
         >
           <div>
             <label
@@ -70,7 +65,6 @@ export const LoginPage = () => {
             <button
               type="submit"
               className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600"
-              disabled={isLoading}
             >
               登录
             </button>
@@ -80,3 +74,5 @@ export const LoginPage = () => {
     </section>
   );
 };
+
+export default LoginPage;
